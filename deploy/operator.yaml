@@ -16,7 +16,7 @@ spec:
       containers:
         - name: bgdeploy
           # Replace this with the built image name
-          image: takeyan/bgdeploy-operator:0.0.1
+          image: takeyan/bgdeploy-operator:0.0.2
           command:
           - bgdeploy
           imagePullPolicy: Always
