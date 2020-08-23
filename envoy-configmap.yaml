@@ -36,6 +36,8 @@ data:
     static_resources:
       clusters:
       - connect_timeout: 1s
+        type: LOGICAL_DNS
+        dns_lookup_family: V4_ONLY
         load_assignment:
           cluster_name: xds_cluster
           endpoints:
@@ -43,7 +45,7 @@ data:
             - endpoint:
                 address:
                   socket_address:
-                    address: 0.0.0.0
+                    address: "bgdeploy-svc-xds.default"
                     port_value: 18000
         http2_protocol_options: {}
         name: xds_cluster

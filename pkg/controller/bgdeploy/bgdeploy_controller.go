@@ -806,10 +806,16 @@ func (r *ReconcileBGDeploy) newXDSServiceForCR(cr *swallowlabv1alpha1.BGDeploy, 
         },
         Spec: corev1.ServiceSpec{
             Ports: []corev1.ServicePort{{
+                Name: "xds",
                 Protocol: "TCP",
                 Port: 18000,
-                TargetPort: intstr.FromInt(18000),
-            }},
+                TargetPort: intstr.FromInt(18000)},
+            {
+                Name: "snapshot",
+                Protocol: "TCP",
+                Port: 18080,
+                TargetPort: intstr.FromInt(18080)},
+            },
             Type: corev1.ServiceTypeNodePort,
             Selector: svc_label,
         },
